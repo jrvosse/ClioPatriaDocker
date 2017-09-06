@@ -1,8 +1,9 @@
 FROM swipl
 
 RUN apt-get update
-RUN apt-get install -y git
+RUN apt-get install -y git wget
 
+ENV CLIOPATRIA_VER  V3.1.1
 ENV CLIOPATRIA_USER cliopatria
 ENV CLIOPATRIA_UID  3020
 ENV CLIOPATRIA_DIR  /opt/ClioPatria
@@ -20,7 +21,8 @@ EXPOSE 3020
 USER $CLIOPATRIA_USER
 WORKDIR $CLIOPATRIA_DIR
 
-RUN git clone --depth 1 --recursive https://github.com/ClioPatria/ClioPatria.git $CLIOPATRIA_DIR
+RUN wget https://github.com/ClioPatria/ClioPatria/archive/$CLIOPATRIA_VERSION.tar.gz .
+RUN tar xcf $CLIOPATRIA_VERSION.tar.gz
 
 WORKDIR $PROJECT_DIR
 
