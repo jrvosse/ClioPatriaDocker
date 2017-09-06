@@ -22,7 +22,8 @@ USER $CLIOPATRIA_USER
 WORKDIR $CLIOPATRIA_DIR
 
 RUN wget https://github.com/ClioPatria/ClioPatria/archive/$CLIOPATRIA_VER.tar.gz
-RUN tar xzf $CLIOPATRIA_VER.tar.gz
+RUN tar --strip-components=1 -xzf $CLIOPATRIA_VER.tar.gz
+RUN rm $CLIOPATRIA_VER.tar.gz
 
 WORKDIR $PROJECT_DIR
 
