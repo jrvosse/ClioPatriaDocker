@@ -1,4 +1,9 @@
 #!/bin/bash
-
-sudo docker run -v $PWD:/opt/project -p 3020:3020 -it jrvosse/cliopatria:3.1  ./run.pl
-
+VERSION=3.1
+sudo docker run \
+	-v $PWD:/opt/project \
+	-v /etc/group:/etc/group:ro \
+	-v /etc/passwd:/etc/passwd:ro \
+	-u $( id -u $USER ):$( id -g $USER ) \
+	-p 3020:3020 -it  \
+	jrvosse/cliopatria:$VERSION  ./run.pl
