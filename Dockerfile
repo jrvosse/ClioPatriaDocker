@@ -26,4 +26,4 @@ WORKDIR $PROJECT_DIR
 
 USER root
 
-CMD /opt/ClioPatria/configure
+CMD /opt/ClioPatria/configure --with-localhost
