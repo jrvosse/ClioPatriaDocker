@@ -1,4 +1,4 @@
-FROM swipl/swipl
+FROM swipl
 
 RUN apt-get update
 RUN apt-get install -y git
@@ -24,3 +24,5 @@ RUN git clone --depth 1 --recursive https://github.com/ClioPatria/ClioPatria.git
 WORKDIR $PROJECT_DIR
 
 USER root
+
+CMD /opt/ClioPatria/configure
