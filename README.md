@@ -5,7 +5,7 @@ This is a ClioPatria image intended to run within your local project directory, 
 See the config.sh and run.sh scripts for examples.
 
 ## Example usage
-This usage the docker image to create a new ClioPatria project:
+This uses the docker image to create a new ClioPatria project:
 ```bash 
 mkdir project
 cd project
