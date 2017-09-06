@@ -21,8 +21,8 @@ EXPOSE 3020
 USER $CLIOPATRIA_USER
 WORKDIR $CLIOPATRIA_DIR
 
-RUN wget https://github.com/ClioPatria/ClioPatria/archive/$CLIOPATRIA_VERSION.tar.gz .
-RUN tar xcf $CLIOPATRIA_VERSION.tar.gz
+RUN wget https://github.com/ClioPatria/ClioPatria/archive/$CLIOPATRIA_VER.tar.gz
+RUN tar xzf $CLIOPATRIA_VER.tar.gz
 
 WORKDIR $PROJECT_DIR
 
