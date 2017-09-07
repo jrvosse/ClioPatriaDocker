@@ -1,7 +1,7 @@
 FROM swipl
 
 RUN apt-get update
-RUN apt-get install -y git wget
+RUN apt-get install -y git wget graphviz ImageMagick
 
 ENV CLIOPATRIA_VER  V3.1.1
 ENV CLIOPATRIA_USER cliopatria
@@ -20,10 +20,8 @@ EXPOSE 3020
 
 USER $CLIOPATRIA_USER
 WORKDIR $CLIOPATRIA_DIR
-
-RUN wget https://github.com/ClioPatria/ClioPatria/archive/$CLIOPATRIA_VER.tar.gz
-RUN tar --strip-components=1 -xzf $CLIOPATRIA_VER.tar.gz
-RUN rm $CLIOPATRIA_VER.tar.gz
+RUN git clone --recursive https://github.com/ClioPatria/ClioPatria.git $CLIOPATRIA_DIR; \
+	git checkout $CLIOPATRIA_VER
 
 WORKDIR $PROJECT_DIR
 
