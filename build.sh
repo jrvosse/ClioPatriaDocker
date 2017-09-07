@@ -1,5 +1,4 @@
 #!/bin/bash
-
-sudo docker rmi jrvosse/cliopatria:3.1 
-sudo docker build --tag jrvosse/cliopatria:3.1  .
-
+VERSION=latest
+sudo docker rmi jrvosse/cliopatria:$VERSION
+sudo docker build --tag jrvosse/cliopatria:$VERSION  .

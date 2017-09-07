@@ -1,7 +1,7 @@
 FROM swipl
 
 RUN apt-get update
-RUN apt-get install -y git wget graphviz ImageMagick
+RUN apt-get install -y git wget graphviz imagemagick
 
 ENV CLIOPATRIA_VER  V3.1.1
 ENV CLIOPATRIA_USER cliopatria

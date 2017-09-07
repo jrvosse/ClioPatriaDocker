@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION=3.1
+VERSION=latest
 sudo docker run \
 	-v $PWD:/opt/project \
 	-v /etc/group:/etc/group:ro \

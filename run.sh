@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION=3.1
+VERSION=latest
 RUN=${1-./run.pl}
 sudo docker run \
 	-v $PWD:/opt/project \
