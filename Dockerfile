@@ -3,25 +3,28 @@ FROM swipl
 RUN apt-get update
 RUN apt-get install -y git wget graphviz imagemagick
 
-ENV CLIOPATRIA_VER  V3.1.1
-ENV CLIOPATRIA_USER cliopatria
-ENV CLIOPATRIA_UID  3020
-ENV CLIOPATRIA_DIR  /opt/ClioPatria
-ENV PROJECT_DIR     /opt/project
 ENV LANG C.UTF-8
 
-RUN useradd --uid $CLIOPATRIA_UID -M $CLIOPATRIA_USER
+ENV CLIOPATRIA_DIR /opt/ClioPatria
 RUN mkdir $CLIOPATRIA_DIR
+
+ENV PROJECT_DIR /opt/project
 RUN mkdir $PROJECT_DIR
+
+ENV CLIOPATRIA_USER cliopatria
+ENV CLIOPATRIA_UID  3020
+RUN useradd --uid $CLIOPATRIA_UID -M $CLIOPATRIA_USER
 RUN chown $CLIOPATRIA_USER $CLIOPATRIA_DIR
 RUN chown $CLIOPATRIA_USER $PROJECT_DIR
 
-EXPOSE 3020
-
 USER $CLIOPATRIA_USER
 WORKDIR $CLIOPATRIA_DIR
-RUN git clone --recursive https://github.com/ClioPatria/ClioPatria.git $CLIOPATRIA_DIR; \
-	git checkout $CLIOPATRIA_VER
+
+ENV CLIOPATRIA_REF  V3.1.1
+ENV CLIOPATRIA_REPO https://github.com/ClioPatria/ClioPatria.git
+RUN \
+	git clone --recursive $CLIOPATRIA_REPO $CLIOPATRIA_DIR; \
+	git checkout $CLIOPATRIA_REF
 
 WORKDIR $PROJECT_DIR
 
