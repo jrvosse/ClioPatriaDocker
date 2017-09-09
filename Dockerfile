@@ -10,7 +10,6 @@ RUN mkdir $CLIOPATRIA_DIR
 
 ENV PROJECT_DIR /opt/project
 RUN mkdir $PROJECT_DIR
-
 WORKDIR $CLIOPATRIA_DIR
 
 ENV CLIOPATRIA_REPO https://github.com/ClioPatria/ClioPatria.git
@@ -18,7 +17,8 @@ ENV CLIOPATRIA_REF  7b550ba4d4aba273a47bc2c44bbf08a5f0e86b9d
 RUN \
 	git clone --recursive $CLIOPATRIA_REPO $CLIOPATRIA_DIR; \
 	git checkout $CLIOPATRIA_REF
+ADD entrypoint.sh .
 
 WORKDIR $PROJECT_DIR
 
-CMD /opt/ClioPatria/configure --with-localhost
+ENTRYPOINT /opt/ClioPatria/entrypoint.sh
