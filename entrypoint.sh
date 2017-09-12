@@ -1,4 +1,4 @@
 #!/bin/bash
-echo "Configure/run cliopatria in $PWD"
-[ ! -x ./run.pl ] && /opt/ClioPatria/configure --with-localhost
-[   -x ./run.pl ] && ./run.pl $@
+PORT=${PORT:-3020}
+[ ! -x ./daemon.pl ] && /opt/ClioPatria/configure --with-localhost
+[   -x ./daemon.pl ] && ./daemon.pl --no-fork --port=$PORT $@
