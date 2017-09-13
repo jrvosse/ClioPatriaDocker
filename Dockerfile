@@ -2,8 +2,12 @@ FROM swipl
 
 LABEL maintainer "Jacco.van.Ossenbruggen@cwi.nl"
 
-RUN apt-get update
-RUN apt-get install -y git wget graphviz imagemagick
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+	git \
+	graphviz \
+	imagemagick \
+	wget 
 
 ENV LANG C.UTF-8
 
