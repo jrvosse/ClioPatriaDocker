@@ -1,5 +1,7 @@
 FROM swipl
 
+LABEL maintainer "Jacco.van.Ossenbruggen@cwi.nl"
+
 RUN apt-get update
 RUN apt-get install -y git wget graphviz imagemagick
 
