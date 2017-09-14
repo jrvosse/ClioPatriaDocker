@@ -8,6 +8,3 @@ services:
       always
     ports: 
     - 127.0.0.1:3020:3020
-    volumes:
-    - $PWD:/opt/project
-    user: $UID:$GID
