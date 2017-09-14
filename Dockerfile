@@ -7,15 +7,16 @@ RUN apt-get update && \
 	git \
 	graphviz \
 	imagemagick \
-	wget 
+	wget && \
+    rm -rf /var/lib/apt/lists/*
 
 ENV LANG C.UTF-8
-
 ENV CLIOPATRIA_DIR /opt/ClioPatria
 RUN mkdir $CLIOPATRIA_DIR
 
 ENV PROJECT_DIR /opt/project
 RUN mkdir $PROJECT_DIR
+
 WORKDIR $CLIOPATRIA_DIR
 
 ENV CLIOPATRIA_REPO https://github.com/ClioPatria/ClioPatria.git
