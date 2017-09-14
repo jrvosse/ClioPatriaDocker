@@ -10,7 +10,6 @@ RUN apt-get update && \
 	wget && \
     rm -rf /var/lib/apt/lists/*
 
-ENV LANG C.UTF-8
 ENV CLIOPATRIA_DIR /opt/ClioPatria
 RUN mkdir $CLIOPATRIA_DIR
 
