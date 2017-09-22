@@ -1,5 +1,6 @@
 #!/bin/bash
 PORT=${PORT:-3020}
+CLIOPATRIA_DIR=${CLIOPATRIA_DIR:-/opt/ClioPatria}
 echo "$@"
 
 init() {
@@ -16,17 +17,22 @@ cp_daemon() {
 	fi
 }
 
-init
 case "$1" in
-	daemon)	cp_daemon
+	daemon)	init
+		cp_daemon
 		;;
 	rdf_load)
+		init
 		shift
 		./run.pl $@
 		cp_daemon
 		;;
-	cpack) 	./run.pl $@
+	cpack) 	init
+		./run.pl $@
 		cp_daemon
+		;;
+	bash)	shift
+		bash $@
 		;;
 	*)	echo "Fatal: $1 not implemented";
 		exit 1;
