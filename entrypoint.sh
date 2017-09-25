@@ -31,6 +31,10 @@ case "$1" in
 		./run.pl $@
 		cp_daemon
 		;;
+	run)	init
+		shift
+		./run.pl $@
+		;;
 	bash)	shift
 		bash $@
 		;;
