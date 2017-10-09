@@ -1,5 +1,4 @@
 #!/bin/bash
-PORT=${PORT:-3020}
 CLIOPATRIA_DIR=${CLIOPATRIA_DIR:-/opt/ClioPatria}
 echo "$@"
 
@@ -11,15 +10,16 @@ init() {
 cp_daemon() {
 	# Make sure we are not running as root, run as nobody if we are root
 	if [[ $EUID -ne 0 ]]; then
-		./daemon.pl --no-fork --port=$PORT $@
+		./daemon.pl --no-fork $@
 	else
-		./daemon.pl --no-fork --port=$PORT --user=nobody $@
+		./daemon.pl --no-fork --user=nobody $@
 	fi
 }
 
 case "$1" in
 	daemon)	init
-		cp_daemon
+		shift
+		cp_daemon $@
 		;;
 	rdf_load)
 		init
