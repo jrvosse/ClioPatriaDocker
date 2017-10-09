@@ -1,6 +1,5 @@
 #!/bin/bash
 CLIOPATRIA_DIR=${CLIOPATRIA_DIR:-/opt/ClioPatria}
-echo "$@"
 
 init() {
 	# Make sure that ClioPatria is configured in the current directory:
@@ -10,10 +9,12 @@ init() {
 cp_daemon() {
 	# Make sure we are not running as root, run as nobody if we are root
 	if [[ $EUID -ne 0 ]]; then
-		./daemon.pl --no-fork $@
+		CMD="./daemon.pl --no-fork $@ --port=3020"
 	else
-		./daemon.pl --no-fork --user=nobody $@
+		CMD="./daemon.pl --no-fork --user=nobody $@ --port=3020"
 	fi
+	echo $CMD
+	$CMD
 }
 
 case "$1" in

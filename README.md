@@ -53,7 +53,7 @@ Just remove your daemon.pl and run.pl scripts, during the first run these will b
 match the paths of swipl and ClioPatria to those in the docker image, but it should leave the rest of your project code alone.
 
 ### Use as base image for other Docker images
-You can also use this as a base image to easily build docker images for your own ClioPatria project.
+You are free to use this as a base image to easily build docker images for your own ClioPatria project.
 See, for example, my amalgame docker image at https://hub.docker.com/r/jrvosse/amalgame/~/dockerfile/
 
 ```docker
