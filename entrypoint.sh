@@ -13,6 +13,7 @@ cp_daemon() {
 	else
 		CMD="./daemon.pl --no-fork --user=nobody $@ --port=3020"
 	fi
+	echo "Running cliopatria in daemon mode, use 'docker run -it jrvosse/cliopatria run' to run in interactive mode"
 	echo $CMD
 	$CMD
 }

@@ -1,6 +1,6 @@
-IMAGE=cliopatria 			# name of docker image to build or use
-CONTAINER=cliopatria			# name of docker container to create
-PORT=3020				# host port to connect to container port (3020)
+IMAGE=cliopatria
+CONTAINER=cliopatria
+PORT=3020
 PUBLISH=--publish=${PORT}:3020
 VOLUME=$(shell pwd)
 MOUNT=-v ${VOLUME}:/opt/project # mount host volume to /opt/project so RDF-store and other settings are persistent
