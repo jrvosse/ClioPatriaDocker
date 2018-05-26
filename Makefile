@@ -1,4 +1,4 @@
-IMAGE=cliopatria
+IMAGE=jrvosse/cliopatria
 CONTAINER=cliopatria
 PORT=3020
 PUBLISH=--publish=${PORT}:3020
