@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  cliopatria:
+    image: 
+      jrvosse/cliopatria:latest
+    deploy:
+        restart_policy:
+                condition: on-failure
+    ports: 
+    - 3020:3020
