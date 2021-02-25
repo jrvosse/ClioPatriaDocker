@@ -1,6 +1,6 @@
 FROM swipl
 
-LABEL maintainer "Jacco.van.Ossenbruggen@cwi.nl"
+LABEL maintainer "Jacco.van.Ossenbruggen@vu.nl"
 
 RUN \
  apt-get update && \
@@ -19,7 +19,7 @@ RUN mkdir $CLIOPATRIA_DIR
 WORKDIR $CLIOPATRIA_DIR
 
 ENV CLIOPATRIA_REPO https://github.com/ClioPatria/ClioPatria.git
-ENV CLIOPATRIA_REF  3288261
+ENV CLIOPATRIA_REF  V3.1.1-40-g9d9e003
 RUN \
  git clone --recursive $CLIOPATRIA_REPO $CLIOPATRIA_DIR; \
  git checkout $CLIOPATRIA_REF
