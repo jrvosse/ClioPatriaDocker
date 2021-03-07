@@ -1,6 +1,6 @@
 # ClioPatriaDocker
 
-This repo contains the code to build docker image for [ClioPatria](/ClioPatria/ClioPatria).
+This repo contains the code to build docker image for [ClioPatria](https://github.com//ClioPatria/ClioPatria).
 
 You can use the image directly to start a ClioPatria server in interactive mode or as a daemon (web service).
 To simplify development, you can also run it by mounting your local project directory on your host as a volume in the docker container under /opt/project/.
