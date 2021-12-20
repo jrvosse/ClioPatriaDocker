@@ -1,6 +1,7 @@
 IMAGE=jrvosse/cliopatria
 CONTAINER=cliopatria
-ARCH=amd64
+# ARCH=amd64
+ARCH=arm64v8
 PORT=3020
 PUBLISH=--publish=${PORT}:3020
 VOLUME=$(shell pwd)
@@ -17,7 +18,7 @@ all:
 	@echo "run              Run the image interactively"
 
 image::
-	docker build -t ${IMAGE}:manifest-${ARCH} --build-arg ARCH=${ARCH}/ .
+	docker build -t ${IMAGE}:${ARCH} .
 
 daemon:
 	docker run --detach ${DOPTS} ${IMAGE}
