@@ -16,6 +16,7 @@ all:
 	@echo "image            Build the ${IMAGE} image"
 	@echo "daemon           Run the image (detached)"
 	@echo "run              Run the image interactively"
+	@echo "manifest         Build and push a multiarch manifest for ${IMAGE}"
 
 image::
 	docker build -t ${IMAGE}:${ARCH} .
@@ -30,3 +31,7 @@ stop:
 	docker stop -t2 ${CONTAINER}
 	docker rm       ${CONTAINER}
 
+manifest:
+	docker manifest rm ${IMAGE}
+	docker manifest create ${IMAGE}:latest ${IMAGE}:arm64v8 --amend ${IMAGE}:amd64
+	docker manifest push ${IMAGE}
