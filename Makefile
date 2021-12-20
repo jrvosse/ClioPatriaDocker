@@ -1,10 +1,11 @@
 IMAGE=jrvosse/cliopatria
 CONTAINER=cliopatria
+ARCH=amd64
 PORT=3020
 PUBLISH=--publish=${PORT}:3020
 VOLUME=$(shell pwd)
 MOUNT=-v ${VOLUME}:/opt/project # mount host volume to /opt/project so RDF-store and other settings are persistent
-RUN_AS_ME=-v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro -u $(shell id -u ${USER} ):$(shell id -g ${USER} )
+# RUN_AS_ME=-v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro -u $(shell id -u ${USER} ):$(shell id -g ${USER} )
 
 DOPTS=${PUBLISH} ${MOUNT} ${RUN_AS_ME} --name=${CONTAINER}
 
@@ -16,7 +17,7 @@ all:
 	@echo "run              Run the image interactively"
 
 image::
-	docker build -t ${IMAGE} .
+	docker build -t ${IMAGE}:manifest-${ARCH} --build-arg ARCH=${ARCH}/ .
 
 daemon:
 	docker run --detach ${DOPTS} ${IMAGE}
