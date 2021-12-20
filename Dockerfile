@@ -1,4 +1,3 @@
-ARG ARCH=
 FROM swipl
 
 LABEL maintainer "Jacco.van.Ossenbruggen@vu.nl"
