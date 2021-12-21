@@ -32,6 +32,6 @@ stop:
 	docker rm       ${CONTAINER}
 
 manifest:
-	docker manifest rm ${IMAGE}
+	# docker manifest rm ${IMAGE}
 	docker manifest create ${IMAGE}:latest ${IMAGE}:arm64v8 --amend ${IMAGE}:amd64
-	docker manifest push ${IMAGE}
+	docker manifest push --purge ${IMAGE}
