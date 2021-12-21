@@ -1,4 +1,4 @@
-FROM swipl
+FROM swipl:8.5.2
 
 LABEL maintainer "Jacco.van.Ossenbruggen@vu.nl"
 
