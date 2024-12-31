@@ -37,7 +37,7 @@ if [ -d RDF-store ]; then
   udaemon=swish
 else
   mkdir RDF-store
-  chown $udaemon.$udaemon RDF-store
+  chown $udaemon:$udaemon RDF-store
 fi
 
 case "$1" in
