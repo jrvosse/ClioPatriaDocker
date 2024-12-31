@@ -2,6 +2,7 @@ IMAGE=jrvosse/cliopatria
 CONTAINER=cliopatria
 # ARCH=amd64
 ARCH=arm64v8
+BOPTS=--no-cache # avoid building errors due to caching, not sure if this is needed...
 PORT=3020
 PUBLISH=--publish=${PORT}:3020
 VOLUME=$(shell pwd)
@@ -19,13 +20,16 @@ all:
 	@echo "manifest         Build and push a multiarch manifest for ${IMAGE}"
 
 image::
-	docker build -t ${IMAGE}:${ARCH} .
+	docker build ${BOPTS} -t ${IMAGE}:${ARCH} .
 
 daemon:
 	docker run --detach ${DOPTS} ${IMAGE}:${ARCH}
 
 run:
 	docker run -it ${DOPTS} ${IMAGE}:${ARCH} run
+	
+push:
+	docker push ${IMAGE}:${ARCH}	
 
 stop:
 	docker stop -t2 ${CONTAINER}
