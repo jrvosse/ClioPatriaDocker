@@ -1,0 +1,8 @@
+# Generic backup files:
+*~
+
+# Cliopatria generated:
+daemon.pl 
+run.pl 
+config-enabled/
+RDF-store/
