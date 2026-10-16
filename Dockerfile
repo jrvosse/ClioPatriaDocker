@@ -1,6 +1,6 @@
 FROM swipl:10.1.18
 
-LABEL maintainer "Jacco.van.Ossenbruggen@vu.nl"
+LABEL maintainer="Jacco.van.Ossenbruggen@vu.nl"
 
 RUN \
  apt-get update && \
@@ -12,14 +12,14 @@ RUN \
   wget && \
  rm -rf /var/lib/apt/lists/*
 
-ENV CLIOPATRIA_DIR /opt/ClioPatria
-ENV PROJECT_DIR /opt/project
+ENV CLIOPATRIA_DIR=/opt/ClioPatria
+ENV PROJECT_DIR=/opt/project
 RUN mkdir $CLIOPATRIA_DIR
 
 WORKDIR $CLIOPATRIA_DIR
 
-ENV CLIOPATRIA_REPO https://github.com/ClioPatria/ClioPatria.git
-ENV CLIOPATRIA_REF  V3.1.1-59-g7b9a7a3
+ENV CLIOPATRIA_REPO=https://github.com/ClioPatria/ClioPatria.git
+ENV CLIOPATRIA_REF=V3.1.1-59-g7b9a7a3
 
 
 RUN \
