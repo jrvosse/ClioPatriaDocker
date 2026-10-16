@@ -1,4 +1,4 @@
-FROM swipl:9.3.17
+FROM swipl:10.1.18
 
 LABEL maintainer "Jacco.van.Ossenbruggen@vu.nl"
 
@@ -19,7 +19,7 @@ RUN mkdir $CLIOPATRIA_DIR
 WORKDIR $CLIOPATRIA_DIR
 
 ENV CLIOPATRIA_REPO https://github.com/ClioPatria/ClioPatria.git
-ENV CLIOPATRIA_REF  V3.1.1-51-ga0b30a5
+ENV CLIOPATRIA_REF  V3.1.1-59-g7b9a7a3
 
 
 RUN \
