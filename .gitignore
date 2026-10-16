@@ -2,7 +2,8 @@
 *~
 
 # Cliopatria generated:
-daemon.pl 
-run.pl 
 config-enabled/
+daemon.pl 
 RDF-store/
+run.pl 
+users.db
